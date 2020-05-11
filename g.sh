@@ -25,7 +25,7 @@ read dde
 if [[ "$opPartitions" == "y" ]]
 then
     sudo chmod +x create-partitions.sh
-    ./create-partitions.sh
+    printf "${partitionName}" | ./create-partitions.sh
     efiPartition=${partitionName}1
     swapPartition=${partitionName}2
     filesystemPartition=${partitionName}3
@@ -44,7 +44,7 @@ fi
 
 ## Iniciar instalação do arch
 echo "Instalando a base do sistema..."
-printf "${swapPartition}\n${filesystemPartition}\n" ./installation
+printf "${swapPartition}\n${filesystemPartition}\n" | ./installation
 
 echo "Instalando o grub efi..."
 arch-chroot /mnt printf "${efiPartition}\n" | ./grub-efi.sh
