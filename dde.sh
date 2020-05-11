@@ -34,9 +34,9 @@ sudo sed -i -e 's/greeter-session=/greeter-session=lightdm-webkit-theme-aether/g
 
 sudo systemctl enable lightdm.service
 
-if [$op = "0"]
+if [[ "$op" = "0" ]]
 then
     install_i3()
-elif [$op = "1"]
+elif [[ "$op" = "1" ]]
 then
 

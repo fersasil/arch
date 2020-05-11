@@ -18,7 +18,11 @@ read opPartitions
 printf "Digite: \n[0] - instalar i3\n[1] - instalar xfce4: "
 read dde
 
-if [$opPartitions = "y"]
+
+# if [[ $aug1 == "and" ]];
+
+
+if [[ "$opPartitions" == "y" ]]
 then
     sudo chmod +x create-partitions.sh
     ./create-partitions.sh
