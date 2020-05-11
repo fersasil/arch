@@ -6,7 +6,8 @@ echo "Enter the filesystem partition"
 read filesystemPartition
 
 {
-mount ${efiPartition} /mnt
+
+mount ${filesystemPartition} /mnt
 swapon ${swapPartition}
 
 
