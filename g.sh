@@ -47,8 +47,10 @@ fi
 echo "Instalando a base do sistema..."
 printf "${swapPartition}\n${filesystemPartition}\n" | source installation.sh
 
+cp * /mnt
+
 echo "Instalando o grub efi..."
-arch-chroot /mnt printf "${efiPartition}\n" | source grub-efi.sh
+arch-chroot /mnt ./grub-efi.sh ${efiPartition}
 
 echo "Começando a configurar o sistema"
 

@@ -1,8 +1,10 @@
 #!/bin/bash  
 
 
-echo "Enter grub partition"
-read efiPartition
+# echo "Enter grub partition"
+# read efiPartition
+
+efiPartition=$1
 
 pacman -S grub efibootmgr dosfstools os-prober mtools --noconfirm
 
