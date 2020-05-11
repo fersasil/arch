@@ -44,7 +44,7 @@ fi
 
 ## Iniciar instalação do arch
 echo "Instalando a base do sistema..."
-printf "${swapPartition}\n${filesystemPartition}\n" | ./installation
+printf "${swapPartition}\n${filesystemPartition}\n" | ./installation.sh
 
 echo "Instalando o grub efi..."
 arch-chroot /mnt printf "${efiPartition}\n" | ./grub-efi.sh
