@@ -48,11 +48,11 @@ echo "Instalando a base do sistema..."
 printf "${swapPartition}\n${filesystemPartition}\n" | source installation.sh
 
 echo "Instalando o grub efi..."
-arch-chroot /mnt printf "${efiPartition}\n" | ./grub-efi.sh
+arch-chroot /mnt printf "${efiPartition}\n" | source grub-efi.sh
 
 echo "Começando a configurar o sistema"
 
-arch-chroot /mnt ./config.sh <<END
+arch-chroot /mnt source config.sh <<END
 $username
 $password
 $hostname
@@ -60,7 +60,7 @@ END
 
 # Interface grafica
 
-arch-chroot /mnt ./dde.sh <<END
+arch-chroot /mnt source dde.sh <<END
 $dde
 END
 
