@@ -34,9 +34,14 @@ install_i3() {
 }
 
 
-sudo pacman -Sy lightdm git --noconfirm
+sudo pacman -Sy yay lightdm git --noconfirm
 git clone https://aur.archlinux.org/lightdm-webkit-theme-aether
-(su $user && cd lightdm-webkit-theme-aether && sudo makepkg -si --noconfirm)
+
+su $user 
+
+(cd lightdm-webkit-theme-aether && sudo makepkg -si --noconfirm)
+
+exit
 
 sudo sed -i -e 's/greeter-session=/greeter-session=lightdm-webkit-theme-aether/g' /etc/lightdm/lightdm.conf
 
