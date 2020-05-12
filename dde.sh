@@ -41,7 +41,7 @@ chmod 777 -R tmp
 cd tmp
 git clone https://github.com/Jguer/yay
 
-su $user -c "makepkg"
+su $user -c "(cd yay && makepkg)"
 
 # git clone https://aur.archlinux.org/lightdm-webkit-theme-aether
 
