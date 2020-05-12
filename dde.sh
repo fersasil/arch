@@ -46,5 +46,3 @@ if [[ "$op" = "0" ]]
 then
     install_i3()
 elif [[ "$op" = "1" ]]
-then
-
