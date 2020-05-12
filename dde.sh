@@ -39,9 +39,13 @@ git clone https://aur.archlinux.org/lightdm-webkit-theme-aether
 
 su $user 
 
-(cd lightdm-webkit-theme-aether && sudo makepkg -si --noconfirm)
+cd lightdm-webkit-theme-aether
+sudo makepkg -si --noconfirm
+cd ..
 
 exit
+
+rm -rf lightdm-webkit-theme-aether
 
 sudo sed -i -e 's/greeter-session=/greeter-session=lightdm-webkit-theme-aether/g' /etc/lightdm/lightdm.conf
 
