@@ -60,6 +60,10 @@ pacman -U $yay --noconfirm
 cd .. 
 rm -rf yay
 cd /arch
+
+su $user -c "k1k2k3k4 | yay -S google-chrome"
+
+
 # git clone https://aur.archlinux.org/lightdm-webkit-theme-aether
 
 # # su $user << END
