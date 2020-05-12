@@ -38,7 +38,7 @@ sudo pacman -Sy go lightdm git --noconfirm
 
 mkdir tmp
 chmod 777 -R tmp
-cd tmp
+cd tmp/yay
 
 git clone https://aur.archlinux.org/yay.git
 
