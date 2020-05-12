@@ -34,20 +34,26 @@ install_i3() {
 }
 
 
-sudo pacman -Sy yay lightdm git --noconfirm
-git clone https://aur.archlinux.org/lightdm-webkit-theme-aether
+sudo pacman -Sy go lightdm git --noconfirm
 
-# su $user << END
-chmod 777 -R lightdm-webkit-theme-aether
-cd lightdm-webkit-theme-aether
-# echo k1k2k3k4 | sudo makepkg -si --noconfirm
-# cd ..
+mkdir tmp
+chmod 777 -R tmp
+cd tmp
+git https://github.com/Jguer/yay
+
+su $user -c "makepkg"
+
+# git clone https://aur.archlinux.org/lightdm-webkit-theme-aether
+
+# # su $user << END
+# cd lightdm-webkit-theme-aether
+# # echo k1k2k3k4 | sudo makepkg -si --noconfirm
+# # cd ..
 # exit
 
 # END
 
 
-su $user -c "makepkg"
 # cd /.cache/trizen/some-package && makepkg -i
 
 
@@ -58,7 +64,8 @@ sudo sed -i -e 's/greeter-session=/greeter-session=lightdm-webkit-theme-aether/g
 
 sudo systemctl enable lightdm.service
 
-if [[ "$op" = "0" ]]
-then install_i3();
-fi
+# if [[ "$op" = "0" ]]
+# then 
+# fi
+install_i3()
 # elif [[ "$op" = "1" ]]
