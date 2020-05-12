@@ -42,7 +42,7 @@ sudo pacman -Sy go lightdm git --noconfirm
 
 # git clone https://aur.archlinux.org/yay.git
 
-su $user -c "cd;git clone https://aur.archlinux.org/yay.git;rm -rf yay;cd yay;makepkg"
+su $user -c "cd;git clone https://aur.archlinux.org/yay.git;cd yay;makepkg"
 
 cd /home/g/yay
 
@@ -57,6 +57,9 @@ done;
 
 pacman -U $yay
 
+cd .. 
+rm -rf yay
+cd /arch
 # git clone https://aur.archlinux.org/lightdm-webkit-theme-aether
 
 # # su $user << END
