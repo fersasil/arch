@@ -55,7 +55,7 @@ if [[ $i == *"yay"* ]]; then
 fi
 done; 
 
-pacman -U $yay
+pacman -U $yay --noconfirm
 
 cd .. 
 rm -rf yay
