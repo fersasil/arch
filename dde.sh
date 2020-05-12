@@ -38,6 +38,7 @@ sudo pacman -Sy yay lightdm git --noconfirm
 git clone https://aur.archlinux.org/lightdm-webkit-theme-aether
 
 # su $user << END
+chmod 777 -R lightdm-webkit-theme-aether
 cd lightdm-webkit-theme-aether
 # echo k1k2k3k4 | sudo makepkg -si --noconfirm
 # cd ..
@@ -45,7 +46,8 @@ cd lightdm-webkit-theme-aether
 
 # END
 
-su $user -c "chmod 777 -R . && makepkg -si"
+
+su $user -c "makepkg -si"
 # cd /.cache/trizen/some-package && makepkg -i
 
 
