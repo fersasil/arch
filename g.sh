@@ -64,10 +64,7 @@ elif [[ "$grubOption" == "1" ]]
 
 echo "Começando a configurar o sistema"
 
-arch-chroot /mnt /bin/bash <<EOF
-    printf "$username\n$password\n$hostname\n" | ./config.sh
-EOF
-
+arch-chroot /mnt ./config.sh $username $password $hostname
 
 arch-chroot /mnt /bin/bash <<EOF
     printf "$dde\n" | ./dde.sh
@@ -79,12 +76,3 @@ EOF
 # arch-chroot /mnt source dde.sh <<END
 # $dde
 # END
-
-
-
-
-
-
-
-
-

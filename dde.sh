@@ -1,8 +1,13 @@
-printf "Digite: \n[0] - instalar i3\n[1] - instalar xfce4: "
-read op
+if [[ -z ${1+x} ]]; 
+then #not set, so read the input from user
+    printf "Digite: \n[0] - instalar i3\n[1] - instalar xfce4: "
+    read op
+else #get from arguments
+    op=$1
+fi
 
 install_i3() {
-    pacman -S i3 i3blocks polybar --noconfirm
+    pacman -Sy i3 i3blocks polybar --noconfirm
     mkdir ~/.config/polybar/
     
     printf "#!/bin/bash
@@ -26,9 +31,9 @@ install_i3() {
 }
 
 
-sudo pacman -S lightdm git --noconfirm
+sudo pacman -Sy lightdm git --noconfirm
 git clone https://aur.archlinux.org/lightdm-webkit-theme-aether
-cd (cd lightdm-webkit-theme-aether && sudo makepkg -si --noconfirm)
+(cd lightdm-webkit-theme-aether && sudo makepkg -si --noconfirm)
 
 sudo sed -i -e 's/greeter-session=/greeter-session=lightdm-webkit-theme-aether/g' /etc/lightdm/lightdm.conf
 

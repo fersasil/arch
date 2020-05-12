@@ -1,13 +1,19 @@
 #!/bin/bash  
+if [[ -z ${1+x} ]]; 
+then #not set, so read the input from user
+    echo "Enter the username: "
+    read username
 
-echo "Enter the username: "
-read username
+    echo "Enter the password: "
+    read password
 
-echo "Enter the password: "
-read password
-
-echo "Enter the hostname: "
-read hostname
+    echo "Enter the hostname: "
+    read hostname
+else #get from arguments
+    username=$1
+    password=$2
+    hostname=$3
+fi
 
 pacman -Syu sudo vim networkmanager --noconfirm
 
