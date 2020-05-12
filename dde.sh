@@ -39,7 +39,7 @@ sudo pacman -Sy go lightdm git --noconfirm
 mkdir tmp
 chmod 777 -R tmp
 cd tmp
-git https://github.com/Jguer/yay
+git clone https://github.com/Jguer/yay
 
 su $user -c "makepkg"
 
