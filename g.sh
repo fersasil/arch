@@ -18,6 +18,8 @@ read opPartitions
 printf "Digite: \n[0] - instalar i3\n[1] - instalar xfce4: "
 read dde
 
+printf "Digite: \n[0] - para uefi\n[1] - para legacy: "
+read grubOption
 
 # if [[ $aug1 == "and" ]];
 
@@ -47,24 +49,36 @@ fi
 echo "Instalando a base do sistema..."
 printf "${swapPartition}\n${filesystemPartition}\n" | source installation.sh
 
-cp * /mnt
 
-echo "Instalando o grub efi..."
-arch-chroot /mnt ./grub-efi.sh ${efiPartition}
+## Copiar os scripts para o sistema recem montado
+mkdir /mnt/temp
+cp * /mnt/temp
+
+if [[ "$grubOption" == "0" ]]
+then
+    arch-chroot /mnt ./grub-efi.sh ${efiPartition}
+elif [[ "$grubOption" == "1" ]]
+    echo "Instalando o grub efi..."
+    arch-chroot /mnt ./grub-legacy.sh ${partitionName}
+
 
 echo "Começando a configurar o sistema"
 
-arch-chroot /mnt source config.sh <<END
-$username
-$password
-$hostname
-END
+arch-chroot /mnt /bin/bash <<EOF
+    printf "$username\n$password\n$hostname\n" | ./config.sh
+EOF
+
+
+arch-chroot /mnt /bin/bash <<EOF
+    printf "$dde\n" | ./dde.sh
+EOF
+
 
 # Interface grafica
 
-arch-chroot /mnt source dde.sh <<END
-$dde
-END
+# arch-chroot /mnt source dde.sh <<END
+# $dde
+# END
 
 
 
