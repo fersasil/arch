@@ -37,12 +37,17 @@ install_i3() {
 sudo pacman -Sy go lightdm git --noconfirm
 
 mkdir tmp
-chmod 777 -R tmp
+chmod 777 -R /arch
 cd tmp/yay
 
 git clone https://aur.archlinux.org/yay.git
 
-su $user -c "makepkg"
+su $user -c << END
+    cd
+    git clone https://aur.archlinux.org/yay.git
+    cd yay
+    makepkg
+END
 
 pacman -i
 
