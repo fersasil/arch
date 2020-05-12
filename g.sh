@@ -56,23 +56,14 @@ cp * /mnt/temp
 
 if [[ "$grubOption" == "0" ]]
 then
-    arch-chroot /mnt ./grub-efi.sh ${efiPartition}
+    arch-chroot /mnt temp/grub-efi.sh ${efiPartition}
 elif [[ "$grubOption" == "1" ]]
     echo "Instalando o grub efi..."
-    arch-chroot /mnt ./grub-legacy.sh ${partitionName}
+    arch-chroot /mnt temp/grub-legacy.sh ${partitionName}
 
 
 echo "Começando a configurar o sistema"
 
-arch-chroot /mnt ./config.sh $username $password $hostname
+arch-chroot /mnt temp/config.sh $username $password $hostname
 
-arch-chroot /mnt /bin/bash <<EOF
-    printf "$dde\n" | ./dde.sh
-EOF
-
-
-# Interface grafica
-
-# arch-chroot /mnt source dde.sh <<END
-# $dde
-# END
+arch-chroot /mnt temp/dde.sh $dde $username

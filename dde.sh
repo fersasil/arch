@@ -2,8 +2,11 @@ if [[ -z ${1+x} ]];
 then #not set, so read the input from user
     printf "Digite: \n[0] - instalar i3\n[1] - instalar xfce4: "
     read op
+    echo "Digite o nome do usuário"
+    read user
 else #get from arguments
     op=$1
+    user=$2
 fi
 
 install_i3() {
@@ -33,7 +36,7 @@ install_i3() {
 
 sudo pacman -Sy lightdm git --noconfirm
 git clone https://aur.archlinux.org/lightdm-webkit-theme-aether
-(cd lightdm-webkit-theme-aether && sudo makepkg -si --noconfirm)
+(su $user && cd lightdm-webkit-theme-aether && sudo makepkg -si --noconfirm)
 
 sudo sed -i -e 's/greeter-session=/greeter-session=lightdm-webkit-theme-aether/g' /etc/lightdm/lightdm.conf
 
