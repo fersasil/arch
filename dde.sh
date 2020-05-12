@@ -47,7 +47,7 @@ cd lightdm-webkit-theme-aether
 # END
 
 
-su $user -c "makepkg -si"
+su $user -c "makepkg"
 # cd /.cache/trizen/some-package && makepkg -i
 
 
@@ -59,6 +59,6 @@ sudo sed -i -e 's/greeter-session=/greeter-session=lightdm-webkit-theme-aether/g
 sudo systemctl enable lightdm.service
 
 if [[ "$op" = "0" ]]
-then
-    install_i3()
+then install_i3();
+fi
 # elif [[ "$op" = "1" ]]
