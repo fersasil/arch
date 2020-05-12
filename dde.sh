@@ -42,13 +42,7 @@ sudo pacman -Sy go lightdm git --noconfirm
 
 # git clone https://aur.archlinux.org/yay.git
 
-su $user -c printf "
-    cd\n
-    git clone https://aur.archlinux.org/yay.git\n
-    rm -rf yay\n
-    cd yay\n
-    makepkg\n
-"
+su $user -c printf "cd\ngit clone https://aur.archlinux.org/yay.git\nrm -rf yay\ncd yay\nmakepkg\n"
 
 cd /home/g/yay
 
