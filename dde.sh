@@ -34,7 +34,7 @@ install_i3() {
 }
 
 
-sudo pacman -Sy go lightdm git --noconfirm
+sudo pacman -Sy go lightdm-webkit2-greeter ttf-opensans lightdm git --noconfirm
 
 # mkdir tmp
 # chmod 777 -R /arch
