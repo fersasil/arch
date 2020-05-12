@@ -37,13 +37,15 @@ install_i3() {
 sudo pacman -Sy yay lightdm git --noconfirm
 git clone https://aur.archlinux.org/lightdm-webkit-theme-aether
 
-su $user 
-
+su $user << END
 cd lightdm-webkit-theme-aether
 sudo makepkg -si --noconfirm
 cd ..
-
 exit
+
+END
+
+
 
 rm -rf lightdm-webkit-theme-aether
 
