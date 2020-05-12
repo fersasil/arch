@@ -50,7 +50,18 @@ su $user -c << END
     makepkg
 END
 
-pacman -i
+cd /home/g/yay
+
+for i in $(ls); 
+do 
+if [[ $i == *"yay"* ]]; then
+    if [[ $i == *"pkg"* ]]; then
+        yay="$i"
+    fi
+fi
+done; 
+
+pacman -U $yay
 
 # git clone https://aur.archlinux.org/lightdm-webkit-theme-aether
 
