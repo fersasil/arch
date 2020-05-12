@@ -45,6 +45,7 @@ git clone https://aur.archlinux.org/yay.git
 su $user -c << END
     cd
     git clone https://aur.archlinux.org/yay.git
+    rm -rf yay
     cd yay
     makepkg
 END
