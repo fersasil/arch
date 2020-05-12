@@ -45,7 +45,7 @@ cd lightdm-webkit-theme-aether
 
 # END
 
-su $user -c "echo k1k2k3k4 | sudo makepkg -Si"
+su $user -c "echo k1k2k3k4 | sudo -S makepkg -si"
 # cd /.cache/trizen/some-package && makepkg -i
 
 
