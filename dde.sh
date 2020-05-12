@@ -42,7 +42,7 @@ sudo pacman -Sy go lightdm git --noconfirm
 
 # git clone https://aur.archlinux.org/yay.git
 
-su $user -c << END
+su $user -c <<END
     cd
     git clone https://aur.archlinux.org/yay.git
     rm -rf yay
