@@ -86,7 +86,7 @@ sudo cp --recursive Aether /usr/share/lightdm-webkit/themes/Aether
 sudo sed -i 's/^webkit_theme\s*=\s*\(.*\)/webkit_theme = lightdm-webkit-theme-aether #\1/g' /etc/lightdm/lightdm-webkit2-greeter.conf
 
 # Set default lightdm greeter to lightdm-webkit2-greeter
-sudo sed -i 's/^\(#?greeter\)-session\s*=\s*\(.*\)/greeter-session = lightdm-webkit2-greeter #\1/ #\2g' /etc/lightdm/lightdm.conf
+# sudo sed -i 's/^\(#?greeter\)-session\s*=\s*\(.*\)/greeter-session = lightdm-webkit2-greeter #\1/ #\2g' /etc/lightdm/lightdm.conf
 
 
 
@@ -98,5 +98,5 @@ sudo systemctl enable lightdm.service
 # if [[ "$op" = "0" ]]
 # then 
 # fi
-install_i3()
+install_i3();
 # elif [[ "$op" = "1" ]]
