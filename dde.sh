@@ -39,7 +39,7 @@ git clone https://aur.archlinux.org/lightdm-webkit-theme-aether
 
 su $user << END
 cd lightdm-webkit-theme-aether
-sudo makepkg -si --noconfirm
+echo k1k2k3k4 | sudo makepkg -si --noconfirm
 cd ..
 exit
 
@@ -56,4 +56,4 @@ sudo systemctl enable lightdm.service
 if [[ "$op" = "0" ]]
 then
     install_i3()
-elif [[ "$op" = "1" ]]
+# elif [[ "$op" = "1" ]]
