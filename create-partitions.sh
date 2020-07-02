@@ -26,7 +26,7 @@ sudo gdisk $partitionName <<END
 n
 
 
-+4GB
++8GB
 8200
 w
 y
